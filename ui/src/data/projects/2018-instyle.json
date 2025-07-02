@@ -2,7 +2,7 @@
   "title": "InStyle.com",
   "job": "Meredith",
   "year": 2018,
-  "image": "instyle.jpg",
+  "images": ["instyle.jpg"],
   "imageHeight": 560,
   "video": "",
   "summary": "Website for a celebrity fashion magazine. The site contains landing pages for beauty product shopping, celebrity outfit galleries, and general fashion news.",

@@ -1,0 +1,74 @@
+---
+import type { ImgAttributes } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+import { Image } from "astro:assets";
+import Tape from "../Tape/Tape.astro";
+import styles from "./Polaroid.module.scss";
+
+interface Props {
+  images: CollectionEntry<"projects">["data"]["images"];
+  height: CollectionEntry<"projects">["data"]["imageHeight"];
+  title?: CollectionEntry<"projects">["data"]["title"];
+  job?: CollectionEntry<"projects">["data"]["job"];
+  year?: CollectionEntry<"projects">["data"]["year"];
+  tapeColor?: string;
+  loading?: ImgAttributes["loading"];
+  zoom?: boolean;
+}
+
+const {
+  images,
+  height,
+  title,
+  job,
+  year,
+  tapeColor,
+  loading,
+  zoom = false,
+} = Astro.props;
+const getRandomNumber = (min: number, max: number) =>
+  Math.floor(Math.random() * (max - min + 1) + min);
+const tapeLeft = {
+  rotation: -getRandomNumber(10, 30),
+  width: getRandomNumber(110, 140),
+  top: getRandomNumber(10, 20),
+  left: getRandomNumber(20, 40),
+  color: tapeColor,
+};
+const tapeRight = {
+  rotation: getRandomNumber(10, 30),
+  width: getRandomNumber(110, 140),
+  top: getRandomNumber(10, 20),
+  right: getRandomNumber(20, 40),
+  color: tapeColor,
+};
+---
+
+<div class={styles.polaroid}>
+  <Tape {...tapeLeft} />
+  <Tape {...tapeRight} />
+  <div class={styles.images}>
+    {
+      images.map((src) => (
+        <Image
+          class:list={[
+            styles.img,
+            { [styles.zoom]: zoom, [styles.fade]: images.length > 1 },
+          ]}
+          src={`/images/${src}`}
+          alt=""
+          width="1000"
+          height={height}
+          loading={loading}
+        />
+      ))
+    }
+  </div>
+  <div class={styles.content}>
+    {title && <h2 class={styles.title}>{title}</h2>}
+    <div class={styles.side}>
+      {job && <span class={styles.job}>{job}</span>}
+      {year && <span class={styles.year}>{year}</span>}
+    </div>
+  </div>
+</div>

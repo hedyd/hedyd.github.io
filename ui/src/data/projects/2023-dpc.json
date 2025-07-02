@@ -2,7 +2,7 @@
   "title": "Design Portfolio Center",
   "job": "Cynda Media Lab",
   "year": 2023,
-  "image": "dpc.png",
+  "images": ["dpc.png", "dpc2.jpg"],
   "imageHeight": 541,
   "video": "",
   "summary": "Provides mentoring for aspiring designers or UI/UX professionals looking to improve their skills and web portfolio.",
@@ -14,7 +14,8 @@
   "features": [
     "Headless Wordpress with lit-html front-end",
     "Custom Gutenberg blocks for content editing",
-    "Calendly integration for scheduling meetings"
+    "Calendly integration for scheduling meetings",
+    "Light and dark themes"
   ],
   "skills": [
     "lit-html",

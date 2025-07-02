@@ -2,7 +2,7 @@
   "title": "MIT and FIT Remote Learning Hub",
   "job": "Cynda Media Lab",
   "year": 2022,
-  "image": "mitandfit2.jpg",
+  "images": ["mitandfit2.jpg", "mitandfit.jpg"],
   "imageHeight": 562,
   "video": "https://player.vimeo.com/video/501330026?title=0&byline=0&portrait=0",
   "summary": "An online learning platform used by teachers to create syllabuses and students to track coursework.",

@@ -1,24 +1,40 @@
 @use "../../styles/variables.scss" as v;
 
 .sidePanel {
+  padding: v.$gap * 1.5;
+  background-color: v.$color-peach;
+  min-height: 100vh;
+  box-shadow: 2px 0 3px rgba(v.$color-black, 0.2);
+
+  @media only screen and (min-width: v.$desktop) {
+    position: fixed;
+    width: v.$mobile + v.$gap * 3;
+    height: 100%;
+    z-index: 2;
+    min-height: auto;
+    padding: v.$gap * 3 0 v.$gap * 3 v.$gap * 2;
+  }
+
+  @media print {
+    display: none;
+  }
+}
+
+.grid {
   display: flex;
   flex-direction: column;
-  gap: v.$gap;
-  padding: v.$gap;
-  background-color: v.$color-black;
-  color: v.$color-off-white;
-  z-index: 2;
+  gap: v.$gap * 1.5;
+  max-width: 336px;
+  margin: 0 auto;
 
   @media only screen and (min-width: v.$mobile) {
-    padding: v.$gap 0 0 v.$gap;
+    max-width: v.$mobile;
     display: grid;
     grid-template:
-      "intro intro"
+      "intro nav"
       "chat nav";
     grid-template-rows: auto 1fr;
-    position: fixed;
-    width: 50%;
-    height: 100%;
+    grid-template-columns: 336px 1fr;
   }
 }
 
@@ -37,7 +53,7 @@
 
 .name {
   font-size: 36px;
-  font-family: v.$font-family-display;
+  font-family: v.$font-family-title;
 }
 
 .title {
@@ -56,21 +72,45 @@
 
 .nav {
   grid-area: nav;
-  background-color: #fff;
-  background-image:
-    linear-gradient(
-      90deg,
-      transparent 79px,
-      #abced4 79px,
-      #abced4 81px,
-      transparent 81px
-    ),
-    linear-gradient(#eee 0.1em, transparent 0.1em);
-  background-size: 100% 1.2em;
+  position: relative;
 }
 
 .button {
   cursor: pointer;
   background: none;
   border: 0;
+}
+
+.board {
+  padding-top: v.$gap-half;
+
+  @media only screen and (min-width: v.$desktop) {
+    padding: v.$gap v.$gap * 1.5 0 0;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    scrollbar-color: v.$color-pink v.$color-peach;
+    scrollbar-width: thin;
+  }
+}
+
+.note {
+  display: inline-block;
+  width: calc(50% - 10px);
+  margin-bottom: v.$gap * 1.5;
+  margin-right: v.$gap;
+  height: 82px;
+
+  &:nth-child(2n + 1) {
+    margin-right: 0;
+  }
+
+  &:first-child {
+    width: calc(100% - 4px);
+    height: v.$gap * 4;
+  }
 }

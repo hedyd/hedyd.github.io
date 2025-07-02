@@ -1,47 +1,28 @@
 @use "../../styles/variables.scss" as v;
+@use "../../styles/mixins.scss" as m;
 
 .project {
-  display: flex;
-  flex-direction: column;
-  gap: v.$gap;
-  min-height: 100vh;
+  @include m.slide();
 }
 
-.image {
-  width: 100%;
-  height: auto;
+.inner {
+  @include m.slide-inner();
 }
 
 .grid {
-  display: flex;
-  flex-direction: column;
-  gap: v.$gap;
-  padding: 0 v.$gap;
+  @include m.slide-grid();
 
-  @media only screen and (min-width: v.$desktop) {
-    padding: 0;
-    display: grid;
+  @media only screen and (min-width: v.$mobile) {
     grid-template:
-      "title title"
-      "job job"
       "summary summary"
       "responsibilities features"
       "responsibilities skills";
   }
 }
 
-.title {
-  font-weight: 500;
-  grid-area: title;
-}
-
 .subheader {
-  font-weight: 500;
+  font-weight: 600;
   margin-bottom: v.$gap-fourth;
-}
-
-.job {
-  grid-area: job;
 }
 
 .summary {

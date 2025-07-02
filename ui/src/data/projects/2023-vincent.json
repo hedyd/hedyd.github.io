@@ -2,8 +2,8 @@
   "title": "Vincent Di Fate",
   "job": "Cynda Media Lab",
   "year": 2023,
-  "image": "vincent.png",
-  "imageHeight": 655,
+  "images": ["vincent.png", "vincent2.jpg"],
+  "imageHeight": 412,
   "video": "",
   "summary": "Portfolio website for Vincent Di Fate, an illustrator working in the specialties of science fiction, fantasy, and aerospace art.",
   "responsibilities": [

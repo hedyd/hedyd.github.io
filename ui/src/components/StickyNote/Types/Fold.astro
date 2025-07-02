@@ -1,0 +1,49 @@
+---
+interface Props {
+  color: string;
+}
+
+const { color } = Astro.props;
+---
+
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 30">
+  <>
+    <path fill={color} d="M0 0h12v28l-6-3.75-6-3.75V0Z"></path>
+    <g filter="url(#fold)">
+      <path
+        fill="#000"
+        fill-opacity=".1"
+        d="M12 28 0 20.5h12V28Z"
+        shape-rendering="crispEdges"></path>
+    </g>
+    <defs>
+      <filter
+        id="fold"
+        width="14"
+        height="9.5"
+        x="0"
+        y="20.5"
+        color-interpolation-filters="sRGB"
+        filterUnits="userSpaceOnUse"
+      >
+        <>
+          <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+          <feColorMatrix
+            in="SourceAlpha"
+            result="hardAlpha"
+            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"></feColorMatrix>
+          <feOffset dx="2" dy="2"></feOffset>
+          <feComposite in2="hardAlpha" operator="out"></feComposite>
+          <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+          ></feColorMatrix>
+          <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_31_194"
+          ></feBlend>
+          <feBlend
+            in="SourceGraphic"
+            in2="effect1_dropShadow_31_194"
+            result="shape"></feBlend>
+        </>
+      </filter>
+    </defs>
+  </>
+</svg>

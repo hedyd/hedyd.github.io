@@ -4,14 +4,33 @@ import "../styles/global.scss";
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.ico" />
-		<title>Hedy D.</title>
-	</head>
-	<body>
-		<!-- <slot /> -->
-		<div>Deployment Testing</div>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <title>Hedy D.</title>
+    <meta property="og:title" content="Hedy D." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://hedyd.github.io/" />
+    <meta
+      property="og:image"
+      content="https://hedyd.github.io/images/about.jpg"
+    />
+    <script
+      is:inline
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-PNS1H7VFK8"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-PNS1H7VFK8");
+    </script>
+  </head>
+  <body>
+    <slot />
+  </body>
 </html>

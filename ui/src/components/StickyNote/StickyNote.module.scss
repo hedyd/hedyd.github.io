@@ -1,0 +1,154 @@
+@use "../../styles/variables.scss" as v;
+
+.stickyNote {
+  font-family: v.$font-family-display;
+  position: relative;
+  height: 100%;
+}
+
+.note {
+  text-decoration: none;
+  color: v.$color-black;
+  display: flex;
+  height: 100%;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: v.$gap-fourth;
+  padding: v.$gap-half;
+}
+
+.year {
+  font-weight: 700;
+}
+
+$underline-top: 100%;
+$underline-width: 21px;
+$underline-height: 5px;
+$underline-easing: cubic-bezier(0.33, 1, 0.68, 1);
+
+.title {
+  span {
+    display: inline;
+    padding-bottom: 2px;
+    background-image:
+      linear-gradient(var(--title-color), var(--title-color)),
+      url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 26 6"><g clip-path="url(%23a)"><path stroke="%230d0a07" stroke-linecap="round" d="M0 3.5S3 1 5 2s4.697 2.463 6.5 1 4.318-1.935 6-1c1.682.935 4 3.5 6.5 2.5s3-1.713 3-1.713"/></g><defs><clipPath id="a"><path fill="%23fff" d="M0 0h26v6H0z"/></clipPath></defs></svg>');
+    background-size:
+      100% $underline-height,
+      $underline-width $underline-height;
+    background-position:
+      0 $underline-top,
+      0 $underline-top;
+    background-repeat: no-repeat, repeat-x;
+    transition:
+      background-position var(--title-transition-speed) $underline-easing,
+      background-size var(--title-transition-speed) $underline-easing;
+  }
+}
+
+.title span:hover,
+.active .title span {
+  background-position:
+    var(--title-width) $underline-top,
+    0 $underline-top;
+}
+
+.solid {
+  width: 12px;
+}
+
+.folded {
+  width: 26px;
+  position: relative;
+  z-index: 1;
+
+  .patch {
+    position: absolute;
+    height: 100%;
+    width: 4px;
+    top: 0;
+    right: -2px;
+  }
+
+  .top {
+    height: calc(100% - 58px);
+  }
+
+  svg {
+    position: absolute;
+    width: 30px;
+    bottom: -4px;
+    left: 0;
+  }
+}
+
+.holes {
+  width: 24px;
+  position: relative;
+  z-index: 0;
+
+  .patch {
+    position: absolute;
+    height: 100%;
+    width: 2px;
+    top: 0;
+    right: -2px;
+  }
+
+  svg {
+    width: 28px;
+    position: absolute;
+  }
+
+  .first {
+    overflow: hidden;
+    position: relative;
+    height: calc(100% - 55px);
+
+    svg {
+      bottom: 0;
+    }
+  }
+
+  .last svg {
+    bottom: -4px;
+    left: 0;
+  }
+}
+
+.checkered {
+  background-image:
+    linear-gradient(var(--type-color-light) 1.1px, transparent 1.1px),
+    linear-gradient(
+      to right,
+      var(--type-color-light) 1.1px,
+      var(--type-color) 1.1px
+    );
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.25);
+  background-size: 18px 18px;
+}
+
+.lines {
+  background-image:
+    linear-gradient(var(--type-color-light) 1.1px, transparent 1.1px),
+    linear-gradient(to right, var(--type-color) 1.1px, var(--type-color) 1.1px);
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.25);
+  background-size: 18px 18px;
+  background-position: 0;
+}
+
+.dotted {
+  background-color: var(--type-color);
+  background-image: radial-gradient(
+    circle at 11px 9px,
+    var(--type-color-light) 1.6px,
+    transparent 0
+  );
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.25);
+  background-size: 16px 16px;
+}

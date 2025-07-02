@@ -1,0 +1,128 @@
+@use "../../styles/variables.scss" as v;
+
+.polaroid {
+  background: v.$color-white;
+  padding: v.$gap v.$gap 0;
+  box-shadow: 3px 3px 3px rgba(v.$color-black, 0.3);
+  position: relative;
+
+  @media print {
+    box-shadow: none;
+    border: 1px solid rgba(v.$color-black, 0.2);
+  }
+}
+
+.images {
+  border: 1px solid rgba(v.$color-black, 0.2);
+  overflow: hidden;
+  position: relative;
+
+  .img {
+    width: 100%;
+    height: auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .img:not(:first-child) {
+    z-index: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .fade {
+    transition: opacity 2s;
+
+    &:hover:first-child {
+      opacity: 0;
+    }
+  }
+
+  .zoom {
+    transition: transform 10s ease-in-out;
+
+    &:hover {
+      transform: scale(1.4);
+    }
+  }
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: v.$gap 0;
+  gap: v.$gap;
+
+  @media only screen and (min-width: v.$mobile) {
+    padding: v.$gap * 1.5 v.$gap;
+  }
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 700;
+  font-family: v.$font-family-display;
+
+  @media only screen and (min-width: v.$mobile) {
+    font-size: 28px;
+  }
+}
+
+.side {
+  display: flex;
+  gap: v.$gap-fourth;
+  flex-direction: column;
+
+  @media only screen and (min-width: v.$mobile) {
+    display: inline;
+  }
+
+  @media only screen and (min-width: v.$desktop) {
+    display: flex;
+  }
+
+  @media only screen and (min-width: v.$desktop-wide) {
+    display: inline;
+  }
+
+  @media print {
+    display: inline;
+  }
+}
+
+.job {
+  @media only screen and (min-width: v.$mobile) {
+    &::after {
+      content: "|";
+      margin: 0 v.$gap-fourth 0 v.$gap-half;
+    }
+  }
+
+  @media only screen and (min-width: v.$desktop) {
+    &::after {
+      content: "";
+    }
+  }
+
+  @media only screen and (min-width: v.$desktop-wide) {
+    &::after {
+      content: "|";
+      margin: 0 v.$gap-fourth 0 v.$gap-half;
+    }
+  }
+
+  @media print {
+    &::after {
+      content: "|";
+      margin: 0 v.$gap-fourth 0 v.$gap-half;
+    }
+  }
+}
+
+.job,
+.year {
+  font-size: 16px;
+  font-family: v.$font-family-display;
+}

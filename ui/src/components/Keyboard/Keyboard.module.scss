@@ -1,0 +1,10 @@
+@use "../../styles/variables.scss" as v;
+
+.keyboard {
+  display: flex;
+
+  svg {
+    width: 100%;
+    height: auto;
+  }
+}

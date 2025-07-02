@@ -1,46 +1,49 @@
 ---
-import type { CollectionEntry } from 'astro:content';
-import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+import Polaroid from "../Polaroid/Polaroid.astro";
 import styles from "./Project.module.scss";
 
 interface Props {
-  project: CollectionEntry<'projects'>;
+  project: CollectionEntry<"projects">;
+  backgroundColor: string;
+  tapeColor?: string;
 }
 
-const { project } = Astro.props;
+const { project, backgroundColor, tapeColor } = Astro.props;
 ---
 
-<div class={styles.project} id={project.id}>
-  <Image
-    class={styles.image}
-    src={`/images/${project.data.image}`}
-    alt=""
-    width="1000"
-    height={project.data.imageHeight}
-  />
-  <div class={styles.grid}>
-    <h2 class={styles.title}>{project.data.title}</h2>
-    <div class={styles.job}>{`${project.data.job} | ${project.data.year}`}</div>
-    <div class={styles.summary}>{project.data.summary}</div>
-    <div class={styles.responsibilities}>
-      <h3 class={styles.subheader}>Responsibilities</h3>
-      <ul>
-        {project.data.responsibilities.map((item) => (
-          <li>{item}</li>
-        ))}
-      </ul>
-    </div>
-    <div class={styles.features}>
-      <h3 class={styles.subheader}>Features</h3>
-      <ul>
-        {project.data.features.map((item) => (
-          <li>{item}</li>
-        ))}
-      </ul>
-    </div>
-    <div class={styles.skills}>
-      <h3 class={styles.subheader}>Skills</h3>
-      <div>{project.data.skills.join(", ")}</div>
+<div
+  class={styles.project}
+  id={project.id}
+  style={`background-color: ${backgroundColor}`}
+>
+  <div class={styles.inner}>
+    <Polaroid
+      images={project.data.images}
+      height={project.data.imageHeight}
+      title={project.data.title}
+      job={project.data.job}
+      year={project.data.year}
+      tapeColor={tapeColor}
+    />
+    <div class={styles.grid}>
+      <div class={styles.summary}>{project.data.summary}</div>
+      <div class={styles.responsibilities}>
+        <h3 class={styles.subheader}>Responsibilities</h3>
+        <ul>
+          {project.data.responsibilities.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+      <div class={styles.features}>
+        <h3 class={styles.subheader}>Features</h3>
+        <ul>
+          {project.data.features.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+      <div class={styles.skills}>
+        <h3 class={styles.subheader}>Skills</h3>
+        <div>{project.data.skills.join(", ")}</div>
+      </div>
     </div>
   </div>
 </div>

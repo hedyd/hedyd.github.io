@@ -2,14 +2,11 @@
 
 .projects {
   width: 100%;
-  padding: 0 0 v.$gap;
 
-  @media only screen and (min-width: v.$mobile) {
+  @media only screen and (min-width: v.$desktop) {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-    gap: 0;
-    padding: 0;
     position: relative;
   }
 }
@@ -17,10 +14,8 @@
 .inner {
   display: flex;
   flex-direction: column;
-  gap: v.$gap;
 
-  @media only screen and (min-width: v.$mobile) {
-    padding: v.$gap;
-    max-width: 50%;
+  @media only screen and (min-width: v.$desktop) {
+    width: calc(100% - v.$mobile - v.$gap * 3);
   }
 }

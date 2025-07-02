@@ -7,7 +7,7 @@ const projects = defineCollection({
     title: z.string(),
     job: z.string(),
     year: z.number(),
-    image: z.string(),
+    images: z.string().array(),
     imageHeight: z.number(),
     video: z.string(),
     summary: z.string(),
@@ -22,8 +22,11 @@ const about = defineCollection({
   schema: z.object({
     title: z.string(),
     year: z.number(),
-    image: z.string(),
+    images: z.string().array(),
     imageHeight: z.number(),
+    imageTitle: z.string(),
+    imageJob: z.string(),
+    imageYear: z.number(),
     summary: z.string().array(),
     skills: z
       .object({

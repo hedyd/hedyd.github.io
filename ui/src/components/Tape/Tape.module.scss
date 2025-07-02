@@ -1,0 +1,17 @@
+.tape {
+  z-index: 10;
+  pointer-events: none;
+  opacity: 0.9;
+  position: absolute;
+  --m:
+    conic-gradient(from 45deg at left, #0000, #000 1deg 89deg, #0000 90deg)
+      left / 51% 10px repeat-y,
+    conic-gradient(from -135deg at right, #0000, #000 1deg 89deg, #0000 90deg)
+      right / 51% 10px repeat-y;
+  -webkit-mask: var(--m);
+  mask: var(--m);
+
+  @media print {
+    display: none;
+  }
+}

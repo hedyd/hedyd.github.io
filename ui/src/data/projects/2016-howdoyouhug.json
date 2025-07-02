@@ -2,7 +2,7 @@
   "title": "#HowDoYouHug Campaign",
   "job": "Cynda Media Lab",
   "year": 2016,
-  "image": "howdoyouhug.png",
+  "images": ["howdoyouhug.png"],
   "imageHeight": 486,
   "video": "https://player.vimeo.com/video/262565656?title=0&byline=0&portrait=0",
   "summary": "A social media campaign for GUND. The campaign's core goal was to encourage social shares of their promotional website. Visitors could share custom avatars they built on the site, and GUND would donate toys to charities after milestones were reached.",

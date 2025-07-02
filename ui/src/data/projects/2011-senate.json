@@ -2,7 +2,7 @@
   "title": "Senate Intelligence Committee",
   "job": "Lockheed Martin Desktop Solutions, Inc.",
   "year": 2011,
-  "image": "senate.png",
+  "images": ["senate.png"],
   "imageHeight": 631,
   "video": "",
   "summary": "Website for the Senate Intelligence Committee. The site serves as a repository for the committee's publications and bills. It also contains the committee's hearing schedule and a live stream of their public hearings.",

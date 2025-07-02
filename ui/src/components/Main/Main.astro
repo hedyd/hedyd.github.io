@@ -1,9 +1,10 @@
 ---
 import { getCollection } from "astro:content";
+import { colorPairs } from "../../data/colorPairs";
 import SidePanel from "../SidePanel/SidePanel.astro";
 import Project from "../Project/Project.astro";
-import styles from "./Main.module.scss";
 import About from "../About/About.astro";
+import styles from "./Main.module.scss";
 
 let projects = await getCollection("projects");
 projects = projects.sort((a, b) => b.data.year - a.data.year);
@@ -13,8 +14,24 @@ const about = await getCollection("about");
 <SidePanel />
 <section class={styles.projects}>
   <div class={styles.inner}>
-    {about.map((item) => <About about={item} />)}
-    {projects.map((project) => <Project project={project} />)}
+    {
+      about.map((item) => (
+        <About backgroundColor={colorPairs[0].primary} about={item} />
+      ))
+    }
+    {
+      projects.map((project, projectIndex) => (
+        <Project
+          backgroundColor={
+            colorPairs[(projectIndex + 1) % colorPairs.length].primary
+          }
+          tapeColor={
+            colorPairs[(projectIndex + 1) % colorPairs.length].secondary
+          }
+          project={project}
+        />
+      ))
+    }
   </div>
 </section>
 

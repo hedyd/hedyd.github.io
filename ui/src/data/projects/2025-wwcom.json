@@ -1,8 +1,8 @@
 {
-  "title": "WeightWatchers.com",
+  "title": "ww.com",
   "job": "WW International",
   "year": 2025,
-  "image": "ww.png",
+  "images": ["ww.png"],
   "imageHeight": 510,
   "video": "",
   "summary": "Website for the WeightWatchers (WW) App. Offers information about how to sign up for a WW subscription, as well as free recipes and articles on wellness.",

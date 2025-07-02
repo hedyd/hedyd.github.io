@@ -1,0 +1,40 @@
+---
+import styles from "./Tape.module.scss";
+
+interface Props {
+  color?: string;
+  width?: number;
+  height?: number;
+  top?: number;
+  left?: number;
+  right?: number;
+  rotation?: number;
+  center?: boolean;
+}
+
+const {
+  color = "#FFB6B9",
+  width = 140,
+  height = 40,
+  top = 18,
+  left,
+  right,
+  rotation = 10,
+  center = false,
+} = Astro.props;
+---
+
+<div
+  class={styles.tape}
+  style={{
+    "background-color": color,
+    width: `${width}px`,
+    height: `${height}px`,
+    transform: `rotate(${rotation}deg)`,
+    top: `-${top}px`,
+    left: center ? "50%" : left ? `-${left}px` : "auto",
+    right: center ? "auto" : right ? `-${right}px` : "auto",
+    "margin-left": center ? `-${width / 2}px` : 0,
+  }}
+>
+</div>

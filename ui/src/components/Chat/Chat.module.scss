@@ -3,26 +3,70 @@
 .chat {
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 100px - 48px);
   justify-content: space-between;
+  gap: v.$gap;
+  max-width: 336px;
+  height: calc(100vh - 100px - v.$gap * 4.5);
+
+  @media only screen and (min-width: v.$desktop) {
+    height: calc(100vh - 100px - v.$gap * 7.5);
+  }
 }
 
 .disclaimer {
-  font-size: 12px;
+  font-size: 11px;
   line-height: v.$lh;
 }
 
 .controls {
   display: flex;
-  margin: v.$gap 0;
+  margin: 0 0 v.$gap;
 }
 
 .input {
   width: 100%;
+  border: 1px solid v.$color-pink;
+  outline-color: v.$color-pink;
+  padding: 0 v.$gap-half;
+  font-family: inherit;
+  font-size: 16px;
+}
+
+.button {
+  border: 0;
+  background: v.$color-pink;
+  font-family: inherit;
+  padding: 0 v.$gap;
+  cursor: pointer;
+}
+
+.input,
+.button {
+  height: 32px;
 }
 
 .output {
-  line-height: v.$lh;
   height: 100%;
   overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  scrollbar-color: v.$color-pink v.$color-peach;
+  scrollbar-width: thin;
+}
+
+.label {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

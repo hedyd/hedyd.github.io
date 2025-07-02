@@ -1,51 +1,61 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import { Image } from "astro:assets";
+import Polaroid from "../Polaroid/Polaroid.astro";
 import styles from "./About.module.scss";
 
 interface Props {
   about: CollectionEntry<"about">;
+  backgroundColor: string;
 }
 
-const { about } = Astro.props;
+const { about, backgroundColor } = Astro.props;
 ---
 
-<div class={styles.about} id={about.id}>
-  <Image
-    class={styles.image}
-    src={`/images/${about.data.image}`}
-    alt=""
-    width="1000"
-    height={about.data.imageHeight}
-  />
-  <div class={styles.grid}>
-    <div class={styles.summary}>
-      {about.data.summary.map((p) => <p>{p}</p>)}
-      <ul class={styles.links}>
+<div
+  class={styles.about}
+  id={about.id}
+  style={`background-color: ${backgroundColor}`}
+>
+  <div class={styles.inner}>
+    <Polaroid
+      images={about.data.images}
+      height={about.data.imageHeight}
+      title={about.data.imageTitle}
+      job={about.data.imageJob}
+      year={about.data.imageYear}
+      loading="eager"
+      zoom={true}
+    />
+    <div class={styles.grid}>
+      <div class={styles.summary}>
+        {about.data.summary.map((p) => <p>{p}</p>)}
+        <ul class={styles.links}>
+          {
+            about.data.links.map((link) => (
+              <li>
+                <a
+                  href={link.url}
+                  target="_blank"
+                  title={link.title}
+                  aria-label={link.title}
+                  set:html={link.svg}
+                />
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <div class={styles.skills}>
+        <h2 class={styles.title}>Skills</h2>
         {
-          about.data.links.map((link) => (
-            <li>
-              <a
-                href={link.url}
-                target="_blank"
-                title={link.title}
-                set:html={link.svg}
-              />
-            </li>
+          about.data.skills.map((skill) => (
+            <div>
+              <h3 class={styles.type}>{skill.type}</h3>
+              <div class={styles.skill}>{skill.skills.join(", ")}</div>
+            </div>
           ))
         }
-      </ul>
-    </div>
-    <div class={styles.skills}>
-      <h2 class={styles.title}>Skills</h2>
-      {
-        about.data.skills.map((skill) => (
-          <div>
-            <h3 class={styles.type}>{skill.type}</h3>
-            <div class={styles.skill}>{skill.skills.join(", ")}</div>
-          </div>
-        ))
-      }
+      </div>
     </div>
   </div>
 </div>

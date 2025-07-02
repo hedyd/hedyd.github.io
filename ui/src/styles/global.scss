@@ -1,6 +1,5 @@
 @use "./variables.scss" as v;
-@import url("https://fonts.googleapis.com/css2?family=Gugi&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Gaegu:wght@400;700&family=Gugi&display=swap");
 html,
 body,
 div,
@@ -114,7 +113,6 @@ body {
   line-height: 1;
   font-family: v.$font-family;
   color: v.$color-black;
-  font-size: 15px;
 }
 
 ol,
@@ -126,4 +124,8 @@ ul {
 *:before,
 *:after {
   box-sizing: border-box;
+}
+
+a {
+  color: v.$color-blue;
 }

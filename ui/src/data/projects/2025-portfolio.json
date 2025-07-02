@@ -2,12 +2,13 @@
   "title": "Portfolio Website",
   "job": "Personal",
   "year": 2025,
-  "image": "dpc.png",
+  "images": ["portfolio.jpg"],
   "imageHeight": 541,
   "video": "",
   "summary": "What you're currently looking at!",
   "responsibilities": [
     "Set up a chat bot that answers questions about my resume.",
+    "Deployed a Lambda function and API Gateway REST API via AWS CDK.",
     "Created UI using Astro."
   ],
   "features": [

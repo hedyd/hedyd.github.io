@@ -2,7 +2,7 @@
   "title": "Tera Cloud Memory Extension",
   "job": "Cynda Media Lab",
   "year": 2016,
-  "image": "tera.jpg",
+  "images": ["tera.jpg"],
   "imageHeight": 521,
   "video": "https://player.vimeo.com/video/173573310?title=0&byline=0&portrait=0",
   "summary": "Multilingual marketing website for HB Mobile's Tera, a custom Android phone with additional cloud storage capacity of 1TB.",

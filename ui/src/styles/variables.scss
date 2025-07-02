@@ -1,16 +1,23 @@
 @use "sass:math";
 
-$mobile: 960px;
+$mobile: 768px;
 $desktop: 1280px;
+$desktop-wide: 1440px;
 
-$font-family: "Roboto Mono", monospace;
-$font-family-display: "Gugi", sans-serif;
+$font-family: "DM Sans", sans-serif;
+$font-family-mono: "Roboto Mono", monospace;
+$font-family-title: "Gugi", sans-serif;
+$font-family-display: "Gaegu", sans-serif;
 
 $gap: 16px;
 $gap-half: math.div($gap, 2);
 $gap-fourth: math.div($gap, 4);
 
-$lh: 1.2;
+$lh: 1.4;
 
 $color-black: #0d0a07;
+$color-white: #ffffff;
 $color-off-white: #f4ede1;
+$color-blue: #146c94;
+$color-pink: #ffb6b9;
+$color-peach: #fae3d9;

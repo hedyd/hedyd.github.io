@@ -1,0 +1,115 @@
+---
+import type { CollectionEntry } from "astro:content";
+import Tape from "../Tape/Tape.astro";
+import Fold from "./Types/Fold.astro";
+import styles from "./StickyNote.module.scss";
+import Holes from "./Types/Holes.astro";
+import HolesBottom from "./Types/HolesBottom.astro";
+
+interface Props {
+  title: CollectionEntry<"projects">["data"]["title"];
+  year?: CollectionEntry<"projects">["data"]["year"];
+  id: string;
+  type: "solid" | "folded" | "holes";
+  solidType?: "checkered" | "dotted" | "lines";
+  colorPair: {
+    primary: string;
+    secondary: string;
+  };
+}
+
+const { title, year, id, type, solidType, colorPair } = Astro.props;
+const getRandomNumber = (min: number, max: number) =>
+  Math.floor(Math.random() * (max - min + 1) + min);
+const tape = {
+  top: 10,
+  center: true,
+  width: getRandomNumber(70, 100),
+  height: 20,
+  color: colorPair.secondary,
+  rotation: getRandomNumber(-3, 3),
+};
+
+const solidStyles = {
+  checkered: {
+    "--type-color-light": "#d3a7c5",
+    "--type-color": colorPair.primary,
+  },
+  lines: {
+    "--type-color-light": "#aecfc7",
+    "--type-color": colorPair.primary,
+  },
+  dotted: {
+    "--type-color-light": "#fdd1d3",
+    "--type-color": colorPair.primary,
+  },
+};
+---
+
+<div
+  class:list={[
+    styles.stickyNote,
+    {
+      [styles.checkered]: solidType === "checkered",
+      [styles.lines]: solidType === "lines",
+      [styles.dotted]: solidType === "dotted",
+    },
+  ]}
+  style={solidType ? solidStyles[solidType] : {}}
+  data-note-id={id}
+>
+  <Tape {...tape} />
+  <a class={styles.note} href={`#${id}`}>
+    {type === "solid" && <div class={styles.solid} />}
+    {
+      type === "folded" && (
+        <div class={styles.folded}>
+          <div
+            class={styles.patch}
+            style={{ backgroundColor: colorPair.primary }}
+          />
+          <div
+            class={styles.top}
+            style={{ backgroundColor: colorPair.primary }}
+          />
+          <Fold color={colorPair.primary} />
+        </div>
+      )
+    }
+    {
+      type === "holes" && (
+        <div class={styles.holes}>
+          <div
+            class={styles.patch}
+            style={{ backgroundColor: colorPair.primary }}
+          />
+          <div class={styles.first}>
+            <Holes color={colorPair.primary} />
+          </div>
+          <div class={styles.last}>
+            <HolesBottom color={colorPair.primary} />
+          </div>
+        </div>
+      )
+    }
+    <div
+      class={styles.content}
+      style={{
+        backgroundColor: type !== "solid" ? colorPair.primary : "",
+        zIndex: type === "holes" ? 1 : 0,
+        boxShadow: type !== "solid" ? "4px 4px 0 rgba(0, 0, 0, 0.25)" : "",
+      }}
+    >
+      {year ? <div class={styles.year}>{year}</div> : ""}
+      <div class={styles.title}>
+        <span
+          style={{
+            "--title-width": `${title.length * 10}px`,
+            "--title-color": colorPair.primary,
+            "--title-transition-speed": `${title.length * 80}ms`,
+          }}>{title}</span
+        >
+      </div>
+    </div>
+  </a>
+</div>

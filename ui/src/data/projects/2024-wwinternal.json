@@ -2,7 +2,7 @@
   "title": "WW Internal Tooling",
   "job": "WW International",
   "year": 2024,
-  "image": "wwuk.jpg",
+  "images": ["wwuk.jpg"],
   "imageHeight": 707,
   "video": "",
   "summary": "Internal tooling for WW International. Handles users in the UK who sign up for WW through a free government program.",

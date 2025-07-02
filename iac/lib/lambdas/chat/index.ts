@@ -11,7 +11,7 @@ const client = new BedrockRuntimeClient({
 
 export const sendPrompt = async (prompt: string) => {
   const userContent = `
-    Here are the search results:
+    Here is the resume:
     Hedy Deng
 
     # Resume
@@ -148,6 +148,7 @@ export const sendPrompt = async (prompt: string) => {
     - Headless Wordpress with lit-html front-end
     - Custom Gutenberg blocks for content editing
     - Calendly integration for scheduling meetings
+    = Light and dark themes
 
     ## Vincent Di Fate
     Cynda Media Lab | 2023
@@ -188,13 +189,12 @@ export const sendPrompt = async (prompt: string) => {
     ## Portfolio Website
     Personal | 2025
 
-    What you're currently looking at!
-
     ### Skills
     Astro, AWS Bedrock, AWS Lambda, AWS API Gateway, AWS CDK, React, Git
 
     ### Responsibilities
     - Set up a chat bot that answers questions about my resume.
+    - Deployed a Lambda function and API Gateway REST API via AWS CDK.
     - Created UI using Astro.
 
     ### Features
@@ -226,11 +226,11 @@ export const sendPrompt = async (prompt: string) => {
   `;
 
   const systemContent = `
-    You are a question answering agent. I will provide you with a set of search results. The user will provide you with a question. Your job is to answer the user's question using only information from the search results.
+    You are a question answering agent. I will provide you with a resume. The user will provide you with a question. Your job is to answer the user's question using only information from the resume.
     
-    - You should provide concise answer to simple questions when the answer is directly contained in search results, but when comes to yes/no question, provide some details.
-    - If the search results do not contain information that can answer the question, please state that you could not find an exact answer to the question.
-    - DO NOT USE INFORMATION THAT IS NOT IN SEARCH RESULTS!"
+    - You should provide concise answers to simple questions when the answer is directly contained in the resume, but when comes to yes/no questions, provide some details.
+    - If the resume does not contain information that can answer the question, state that Hedy's resume does not contain this information.
+    - DO NOT USE INFORMATION THAT IS NOT IN THE RESUME!"
   `;
 
   const input: InvokeModelCommandInput = {
@@ -292,8 +292,7 @@ export const handler: APIGatewayProxyHandlerV2 = async (event) => {
     return {
       statusCode: 200,
       headers: {
-        "Access-Control-Allow-Origin": "*",
-        // "Access-Control-Allow-Origin": "https://hedyd.github.io",
+        "Access-Control-Allow-Origin": "https://hedyd.github.io",
         "Access-Control-Allow-Headers": "Content-Type",
       },
       body: response,
