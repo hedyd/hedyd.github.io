@@ -1,0 +1,16 @@
+{
+  "title": "Fun Facts",
+  "year": 0,
+  "images": ["conclusion-1.jpg", "conclusion-2.jpg"],
+  "imageHeight": 502,
+  "imageTitle": "Kenya - Masai Mara",
+  "imageJob": "Personal",
+  "imageYear": 2025,
+  "summary": [
+    "Thanks for getting all the way here! I'll leave you with some fun facts about me. Until next time!"
+  ],
+  "facts": [
+    "I'm a recurring guest speaker for several low-code web portfolio classes (ex. Webflow, Framer, Squarespace) at FIT.",
+    "I've logged sightings of over 200 bird species all over the world!"
+  ]
+}

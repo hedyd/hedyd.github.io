@@ -14,7 +14,25 @@ export const sendPrompt = async (prompt: string) => {
     Here is the resume:
     Hedy Deng
 
-    # Resume
+    # Education
+    Cornell University, College of Engineering
+    Ithaca, NY | May 2011
+    Bachelor of Science in Information Science, Systems and Technology
+
+    # Skills
+    ## Web Development
+    HTML, CSS/SCSS, JavaScript, Web Components, TypeScript, React, Next.js, Angular, lit-html, Astro, Node.js, Express, Fastify, PHP, GraphQL, MongoDB, SQL, Drupal
+    
+    ## Testing
+    Vitest, Jest, Mocha/Chai, Jasmine/Karma, Playwright, Storybook
+    
+    ## Build & Integration Tools
+    Vite, Webpack, Gulp, Github Actions, Jenkins, CircleCI, Docker
+    
+    ## Miscellaneous
+    Prompt Engineering, Webflow, Framer, Figma, Squarespace, Git, Jira, Agile Development, Figma, Adobe Photoshop, Customer Service (IT Helpdesk supervisor), Web Development Instruction (Part-time SUNY faculty)
+
+    # Work Experience
 
     ## Senior Software Engineer, WW International
     - Core developer responsible for moving the legacy Drupal 7 website off Acquia Cloud onto WW’s internal AWS infrastructure.

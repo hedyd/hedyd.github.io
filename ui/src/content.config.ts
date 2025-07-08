@@ -44,4 +44,19 @@ const about = defineCollection({
   }),
 });
 
-export const collections = { projects, about };
+const conclusion = defineCollection({
+  loader: glob({ pattern: "**/*.json", base: "./src/data/conclusion" }),
+  schema: z.object({
+    title: z.string(),
+    year: z.number(),
+    images: z.string().array(),
+    imageHeight: z.number(),
+    imageTitle: z.string(),
+    imageJob: z.string(),
+    imageYear: z.number(),
+    summary: z.string().array(),
+    facts: z.string().array(),
+  }),
+});
+
+export const collections = { projects, about, conclusion };

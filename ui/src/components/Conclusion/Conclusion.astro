@@ -1,0 +1,40 @@
+---
+import type { CollectionEntry } from "astro:content";
+import Polaroid from "../Polaroid/Polaroid.astro";
+import styles from "./Conclusion.module.scss";
+
+interface Props {
+  conclusion: CollectionEntry<"conclusion">;
+  backgroundColor: string;
+}
+
+const { conclusion, backgroundColor } = Astro.props;
+---
+
+<div
+  class={styles.conclusion}
+  id={conclusion.id}
+  style={`background-color: ${backgroundColor}`}
+>
+  <div class={styles.inner}>
+    <Polaroid
+      images={conclusion.data.images}
+      height={conclusion.data.imageHeight}
+      title={conclusion.data.imageTitle}
+      job={conclusion.data.imageJob}
+      year={conclusion.data.imageYear}
+      loading="eager"
+    />
+    <div class={styles.grid}>
+      <div class={styles.summary}>
+        {conclusion.data.summary.map((p) => <p>{p}</p>)}
+      </div>
+      <div class={styles.facts}>
+        <h2 class={styles.title}>Fun Facts</h2>
+        <ul>
+          {conclusion.data.facts.map((fact) => <li>{fact}</li>)}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

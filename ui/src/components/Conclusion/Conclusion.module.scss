@@ -1,0 +1,46 @@
+@use "../../styles/variables.scss" as v;
+@use "../../styles/mixins.scss" as m;
+
+.conclusion {
+  @include m.slide();
+}
+
+.inner {
+  @include m.slide-inner();
+}
+
+.grid {
+  @include m.slide-grid();
+
+  @media only screen and (min-width: v.$mobile) {
+    grid-template: "summary facts";
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.summary {
+  grid-area: summary;
+  line-height: v.$lh;
+
+  p {
+    margin-bottom: v.$gap;
+  }
+}
+
+.title {
+  font-weight: 600;
+  margin-bottom: v.$gap-fourth;
+}
+
+.facts {
+  grid-area: facts;
+
+  ul {
+    line-height: v.$lh;
+    display: flex;
+    flex-direction: column;
+    gap: v.$gap-fourth;
+    list-style-type: disc;
+    margin-left: 24px;
+  }
+}

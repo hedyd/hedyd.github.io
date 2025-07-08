@@ -15,6 +15,10 @@
     padding: v.$gap * 3 0 v.$gap * 3 v.$gap * 2;
   }
 
+  @media only screen and (min-width: v.$desktop-extra-wide) {
+    width: 900px + v.$gap * 3;
+  }
+
   @media print {
     display: none;
   }
@@ -109,7 +113,8 @@
     margin-right: 0;
   }
 
-  &:first-child {
+  &:first-child,
+  &:last-child {
     width: calc(100% - 4px);
     height: v.$gap * 4;
   }

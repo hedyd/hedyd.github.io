@@ -18,4 +18,8 @@
   @media only screen and (min-width: v.$desktop) {
     width: calc(100% - v.$mobile - v.$gap * 3);
   }
+
+  @media only screen and (min-width: v.$desktop-extra-wide) {
+    width: calc(100% - 900px - v.$gap * 3);
+  }
 }

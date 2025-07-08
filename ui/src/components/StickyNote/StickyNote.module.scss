@@ -51,7 +51,7 @@ $underline-easing: cubic-bezier(0.33, 1, 0.68, 1);
   }
 }
 
-.title span:hover,
+.content:hover .title span,
 .active .title span {
   background-position:
     var(--title-width) $underline-top,

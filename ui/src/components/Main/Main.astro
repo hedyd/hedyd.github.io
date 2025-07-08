@@ -5,10 +5,12 @@ import SidePanel from "../SidePanel/SidePanel.astro";
 import Project from "../Project/Project.astro";
 import About from "../About/About.astro";
 import styles from "./Main.module.scss";
+import Conclusion from "../Conclusion/Conclusion.astro";
 
 let projects = await getCollection("projects");
 projects = projects.sort((a, b) => b.data.year - a.data.year);
 const about = await getCollection("about");
+const conclusion = await getCollection("conclusion");
 ---
 
 <SidePanel />
@@ -30,6 +32,11 @@ const about = await getCollection("about");
           }
           project={project}
         />
+      ))
+    }
+    {
+      conclusion.map((item) => (
+        <Conclusion backgroundColor={colorPairs[0].primary} conclusion={item} />
       ))
     }
   </div>
