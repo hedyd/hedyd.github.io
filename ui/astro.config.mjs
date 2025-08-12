@@ -4,6 +4,6 @@ import { defineConfig } from "astro/config";
 import react from "@astrojs/react";
 
 export default defineConfig({
-  site: "https://hedyd.github.io",
+  site: "https://hedyd.dev",
   integrations: [react()],
 });

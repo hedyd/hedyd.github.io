@@ -49,7 +49,7 @@ export class IacStack extends cdk.Stack {
     // Add API route and CORS
     const chat = api.root.addResource("chat", {
       defaultCorsPreflightOptions: {
-        allowOrigins: ["https://hedyd.github.io"],
+        allowOrigins: ["https://hedyd.dev"],
         allowMethods: ["POST"],
       },
     });

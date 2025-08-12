@@ -310,7 +310,7 @@ export const handler: APIGatewayProxyHandlerV2 = async (event) => {
     return {
       statusCode: 200,
       headers: {
-        "Access-Control-Allow-Origin": "https://hedyd.github.io",
+        "Access-Control-Allow-Origin": "https://hedyd.dev",
         "Access-Control-Allow-Headers": "Content-Type",
       },
       body: response,
