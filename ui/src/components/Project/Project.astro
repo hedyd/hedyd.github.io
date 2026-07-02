@@ -10,6 +10,15 @@ interface Props {
 }
 
 const { project, backgroundColor, tapeColor } = Astro.props;
+const { data } = project;
+
+const summary =
+  data.summary == null
+    ? []
+    : Array.isArray(data.summary)
+      ? data.summary
+      : [data.summary];
+const hasRoles = !!data.roles?.length;
 ---
 
 <div
@@ -19,31 +28,78 @@ const { project, backgroundColor, tapeColor } = Astro.props;
 >
   <div class={styles.inner}>
     <Polaroid
-      images={project.data.images}
-      height={project.data.imageHeight}
-      title={project.data.title}
-      job={project.data.job}
-      year={project.data.year}
+      images={data.images}
+      height={data.imageHeight}
+      title={data.imageTitle ?? data.title}
+      job={data.imageJob ?? data.job}
+      year={data.imageYear ?? data.year}
       tapeColor={tapeColor}
     />
-    <div class={styles.grid}>
-      <div class={styles.summary}>{project.data.summary}</div>
-      <div class={styles.responsibilities}>
-        <h3 class={styles.subheader}>Responsibilities</h3>
-        <ul>
-          {project.data.responsibilities.map((item) => <li>{item}</li>)}
-        </ul>
-      </div>
-      <div class={styles.features}>
-        <h3 class={styles.subheader}>Features</h3>
-        <ul>
-          {project.data.features.map((item) => <li>{item}</li>)}
-        </ul>
-      </div>
-      <div class={styles.skills}>
-        <h3 class={styles.subheader}>Skills</h3>
-        <div>{project.data.skills.join(", ")}</div>
-      </div>
+    <div
+      class:list={[
+        styles.grid,
+        { [styles.rolesGrid]: hasRoles },
+      ]}
+    >
+      {
+        summary.length > 0 && (
+          <div class={styles.summary}>
+            {summary.map((p) => (
+              <p>{p}</p>
+            ))}
+          </div>
+        )
+      }
+      {
+        hasRoles && (
+          <div class={styles.roles}>
+            {data.roles!.map((role) => (
+              <div class={styles.role}>
+                <h3 class={styles.roleTitle}>
+                  {role.title}, {role.org}
+                </h3>
+                <ul>
+                  {role.items.map((item) => (
+                    <li>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        )
+      }
+      {
+        !!data.responsibilities?.length && (
+          <div class={styles.responsibilities}>
+            <h3 class={styles.subheader}>Responsibilities</h3>
+            <ul>
+              {data.responsibilities.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </div>
+        )
+      }
+      {
+        !!data.features?.length && (
+          <div class={styles.features}>
+            <h3 class={styles.subheader}>Features</h3>
+            <ul>
+              {data.features.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </div>
+        )
+      }
+      {
+        !!data.skills?.length && (
+          <div class={styles.skills}>
+            <h3 class={styles.subheader}>Skills</h3>
+            <div>{data.skills.join(", ")}</div>
+          </div>
+        )
+      }
     </div>
   </div>
 </div>

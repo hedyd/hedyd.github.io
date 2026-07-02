@@ -4,14 +4,14 @@ import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
 import { Chat } from "../Chat/Chat";
 import { colorPairs } from "../../data/colorPairs";
+import { sortProjects } from "../../data/sortProjects";
 import StickyNote from "../StickyNote/StickyNote.astro";
 import styles from "./SidePanel.module.scss";
 
 let projects = await getCollection("projects");
-projects = projects.sort((a, b) => b.data.year - a.data.year);
+projects = projects.sort(sortProjects);
 const about = await getCollection("about");
-const conclusion = await getCollection("conclusion");
-const nav = [...about, ...projects, ...conclusion];
+const nav = [...about, ...projects];
 const noteTypes: ComponentProps<typeof StickyNote>["type"][] = [
   "folded",
   "holes",
@@ -46,30 +46,39 @@ const solidTypes: ComponentProps<typeof StickyNote>["solidType"][] = [
     <nav class={styles.nav}>
       <ul class={styles.board}>
         {
-          nav.map((project, index) => (
-            <li class={styles.note}>
-              <StickyNote
-                year={project.data.year}
-                title={project.data.title}
-                id={project.id}
-                type={
-                  index === nav.length - 1
-                    ? "folded"
-                    : noteTypes[index % noteTypes.length]
-                }
-                solidType={
-                  noteTypes[index % noteTypes.length] === "solid"
-                    ? solidTypes[(index + 1) / 3 - 1]
-                    : undefined
-                }
-                colorPair={
-                  index === nav.length - 1
-                    ? colorPairs[0]
-                    : colorPairs[index % colorPairs.length]
-                }
-              />
-            </li>
-          ))
+          nav.map((project, index) => {
+            const noteSolidType =
+              "noteSolidType" in project.data
+                ? project.data.noteSolidType
+                : undefined;
+            return (
+              <li class={styles.note}>
+                <StickyNote
+                  year={project.data.year}
+                  title={project.data.title}
+                  id={project.id}
+                  type={
+                    noteSolidType
+                      ? "solid"
+                      : index === nav.length - 1
+                        ? "folded"
+                        : noteTypes[index % noteTypes.length]
+                  }
+                  solidType={
+                    noteSolidType ??
+                    (noteTypes[index % noteTypes.length] === "solid"
+                      ? solidTypes[((index + 1) / 3 - 1) % solidTypes.length]
+                      : undefined)
+                  }
+                  colorPair={
+                    index === nav.length - 1
+                      ? colorPairs[0]
+                      : colorPairs[index % colorPairs.length]
+                  }
+                />
+              </li>
+            );
+          })
         }
       </ul>
     </nav>

@@ -1,0 +1,34 @@
+{
+  "title": "Teaching Experience",
+  "order": 1,
+  "noteSolidType": "checkered",
+  "images": ["conclusion-2.jpg"],
+  "imageHeight": 541,
+  "imageJob": "Personal",
+  "imageYear": 2026,
+  "summary": "I love sharing what I know with the next generation of truly bright students — here are some classes and seminars I've taught!",
+  "roles": [
+    {
+      "title": "Adjunct Professor",
+      "org": "Fashion Institute of Technology",
+      "items": [
+        "Rapid Prototyping with AI - Instructor for a class about the latest AI prototyping tools, including GitHub, VS Code, Claude Code, and Figma Make.",
+        "Brand Experience Design Portfolio & UX/UI Master Program (Guest Lecturer) - Led several sessions on new AI techniques and best practices for various no-code website builders like Webflow, Squarespace, and Framer. Worked one-on-one with students to troubleshoot issues with their websites."
+      ]
+    },
+    {
+      "title": "Faculty",
+      "org": "Design Portfolio Center",
+      "items": [
+        "Tutored students on how to better set up their web portfolios, and provided personalized critiques on the overall structure and performance of their sites."
+      ]
+    },
+    {
+      "title": "Seminar Instructor",
+      "org": "Rutgers University",
+      "items": [
+        "Designed and delivered a seminar on Selenium automation, teaching HTML DOM structure, CSS/XPath selectors, shadow DOM, and automation strategies for single-page applications."
+      ]
+    }
+  ]
+}

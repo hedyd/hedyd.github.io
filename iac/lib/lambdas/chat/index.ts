@@ -166,7 +166,7 @@ export const sendPrompt = async (prompt: string) => {
     - Headless Wordpress with lit-html front-end
     - Custom Gutenberg blocks for content editing
     - Calendly integration for scheduling meetings
-    = Light and dark themes
+    - Light and dark themes
 
     ## Vincent Di Fate
     Cynda Media Lab | 2023
@@ -218,14 +218,15 @@ export const sendPrompt = async (prompt: string) => {
     ### Features
     - AI powered chat assistant
     - Astro content collections
+    - AWS CDK deployment
 
-    ## WeightWatchers.com
-    WW International | 2025
+    ## ww.com
+    WW International | 2026
 
     Website for the WeightWatchers (WW) App. Offers information about how to sign up for a WW subscription, as well as free recipes and articles on wellness.
 
     ### Skills
-    React, Next.js, SCSS, JavaScript, TypeScript, Apollo GraphQL, Node.js, Hapi, Drupal 7/8/9/10, PHP, SQL, Storybook, Memcached, Redis, Fastly, Docker, Kubernetes, Jest, Playwright, Webpack, Github Actions, Git
+    React, Next.js, SCSS, JavaScript, TypeScript, Apollo GraphQL, Node.js, Hapi, Drupal 7/8/9/10, Storyblok, PHP, SQL, Storybook, Memcached, Redis, Fastly, Docker, Kubernetes, ArgoCD, Vercel, Jest, Playwright, Webpack, Github Actions, Git
 
     ### Responsibilities
     - Core developer responsible for the moving the old Drupal 7 website off Acquia Cloud onto WW's internal AWS infrastructure.
@@ -238,6 +239,20 @@ export const sendPrompt = async (prompt: string) => {
     - Blogs, recipes, and taxonomy driven category pages for SEO
     - Storybook integration with front-end components
     - A/B testing with Fastly Compute
+
+    ## Teaching Experience
+
+    I love sharing what I know with the next generation of truly bright students — here are some classes and seminars I've taught!
+
+    ### Adjunct Professor, Fashion Institute of Technology
+    - Rapid Prototyping with AI - Instructor for a class about the latest AI prototyping tools, including GitHub, VS Code, Claude Code, and Figma Make.
+    - Brand Experience Design Portfolio & UX/UI Master Program (Guest Lecturer) - Led several sessions on new AI techniques and best practices for various no-code website builders like Webflow, Squarespace, and Framer. Worked one-on-one with students to troubleshoot issues with their websites.
+
+    ### Faculty, Design Portfolio Center
+    - Tutored students on how to better set up their web portfolios, and provided personalized critiques on the overall structure and performance of their sites.
+
+    ### Seminar Instructor, Rutgers University
+    - Designed and delivered a seminar on Selenium automation, teaching HTML DOM structure, CSS/XPath selectors, shadow DOM, and automation strategies for single-page applications.
 
     Here is the user's query:
     ${prompt}

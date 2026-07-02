@@ -113,8 +113,7 @@
     margin-right: 0;
   }
 
-  &:first-child,
-  &:last-child {
+  &:first-child {
     width: calc(100% - 4px);
     height: v.$gap * 4;
   }
