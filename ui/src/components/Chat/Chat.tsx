@@ -14,6 +14,20 @@ const startingText = `Ask me anything about Hedy's resume! Here are some example
 - What is Hedy's experience with cloud services like AWS?<br />
 - What are some interesting projects Hedy has used React with?`;
 
+const CHAT_URL: string | undefined = import.meta.env.PUBLIC_CHAT_URL;
+const REQUEST_TIMEOUT_MS = 20000;
+
+type ChatResponse = { text: string } | { error: string; message: string };
+
+const errorMessages: Record<string, string> = {
+  rate_limited:
+    "Whoa, that's a lot of questions at once! Give me a minute and try again.",
+  daily_limit:
+    "I've used up today's free AI budget, so I'm resting until tomorrow. Try again later!",
+  timeout: "That took too long to answer. Try asking again!",
+  default: "Sorry, chat isn't working right now. Try again later!",
+};
+
 export const Chat = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [text, setText] = useState<string>(startingText);
@@ -40,34 +54,43 @@ export const Chat = () => {
     resetTypewriter();
     setLoading(true);
 
-    const body = {
-      prompt: userInput,
-    };
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
 
     try {
-      const response = await fetch(
-        "https://qgftcen1z6.execute-api.us-east-1.amazonaws.com/prod/chat",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(body),
-        },
-      );
+      if (!CHAT_URL) {
+        throw new Error("PUBLIC_CHAT_URL is not set.");
+      }
 
-      if (!response.body) {
+      const response = await fetch(CHAT_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ prompt: userInput }),
+        signal: controller.signal,
+      });
+      const json: ChatResponse | null = await response
+        .json()
+        .catch(() => null);
+
+      if (!response.ok || !json || !("text" in json)) {
+        setText(
+          errorMessages[json && "error" in json ? json.error : ""] ??
+            errorMessages.default,
+        );
         return;
       }
 
-      const json = await response.json();
-      const text = encode(json?.output?.message?.content[0]?.text);
-      const output = text?.replace(/\n/g, "<br />") || "";
-
-      setText(output);
-    } catch {
-      setText("Sorry, chat isn't working right now. Try again later!");
+      setText(encode(json.text).replace(/\n/g, "<br />"));
+    } catch (error) {
+      setText(
+        error instanceof DOMException && error.name === "AbortError"
+          ? errorMessages.timeout
+          : errorMessages.default,
+      );
     } finally {
+      clearTimeout(timeout);
       setLoading(false);
     }
   }, [userInput]);
@@ -179,15 +202,14 @@ export const Chat = () => {
           </button>
         </div>
         <div className={styles.disclaimer}>
-          This chat uses{" "}
+          This chat runs on the free tier of{" "}
           <a
-            href="https://docs.aws.amazon.com/nova/latest/userguide/what-is-nova.html"
+            href="https://developers.cloudflare.com/workers-ai/"
             target="_blank"
           >
-            Amazon Nova Micro
+            Cloudflare Workers AI
           </a>
-          , the cheapest AI model I could find. Please don't judge it too much,
-          it's trying its hardest.
+          . Please don't judge it too much, it's trying its hardest.
         </div>
       </form>
     </div>

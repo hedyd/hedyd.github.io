@@ -22,8 +22,7 @@ const observer = new IntersectionObserver(
 
 const projects = document.querySelectorAll(`.${projectStyles.project}`);
 const about = document.getElementById("about");
-const conclusion = document.getElementById("conclusion");
-[...projects, about, conclusion].forEach((project) => {
+[...projects, about].forEach((project) => {
   if (project) {
     observer.observe(project);
   }

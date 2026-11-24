@@ -1,0 +1,140 @@
+{
+  "name": "Hedy Deng",
+  "education": [
+    {
+      "school": "Cornell University, College of Engineering",
+      "location": "Ithaca, NY",
+      "date": "May 2011",
+      "degree": "Bachelor of Science in Information Science, Systems and Technology"
+    }
+  ],
+  "skills": [
+    {
+      "type": "AI Tooling",
+      "skills": [
+        "Claude Code",
+        "Codex",
+        "MCP",
+        "Cursor",
+        "Github Copilot",
+        "AWS Bedrock",
+        "AI Gateways (Vercel, LiteLLM)",
+        "RAG"
+      ]
+    },
+    {
+      "type": "Web Development",
+      "skills": [
+        "HTML",
+        "CSS/SCSS",
+        "Tailwind",
+        "JavaScript",
+        "Web Components",
+        "TypeScript",
+        "React",
+        "Next.js",
+        "Astro",
+        "Node.js",
+        "Express",
+        "PHP",
+        "GraphQL",
+        "MongoDB",
+        "PostgreSQL",
+        "Drupal",
+        "Vite",
+        "Webpack"
+      ]
+    },
+    {
+      "type": "Design",
+      "skills": [
+        "Figma",
+        "Figma Make",
+        "Design Systems",
+        "Storybook",
+        "Prototyping",
+        "Accessibility (WCAG)"
+      ]
+    },
+    {
+      "type": "Testing",
+      "skills": ["Vitest", "Jest", "Playwright", "axe", "WAVE"]
+    },
+    {
+      "type": "DevOps",
+      "skills": [
+        "Github Actions",
+        "Docker",
+        "Kubernetes",
+        "ArgoCD",
+        "Vercel",
+        "Cloudflare",
+        "AWS",
+        "AWS CDK",
+        "Terraform"
+      ]
+    },
+    {
+      "type": "Miscellaneous",
+      "skills": [
+        "Webflow",
+        "Framer",
+        "Squarespace",
+        "Shopify",
+        "Git",
+        "Jira",
+        "Customer Service (IT Helpdesk supervisor)"
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "title": "Senior Software Engineer",
+      "org": "WW International",
+      "location": "New York, NY",
+      "dates": "January 2019 - Present",
+      "items": [
+        "Used Claude Code agents and custom CLIs to migrate about 20 apps to Argo CD and right-size them from New Relic usage data, saving about $60K a year. Also built Claude Code skills that verify pull requests with Playwright.",
+        "Core developer responsible for moving the legacy Drupal 7 website off Acquia Cloud onto WW’s internal AWS infrastructure.",
+        "Set up CI/CD pipelines for linting, testing, and Docker deployments with Github Actions.",
+        "Improved performance across tiers by adding Memcached for the Drupal CMS, Redis for the GraphQL API layer, and Fastly compatible Cache-Control headers for the front-end React app.",
+        "Led a team of three engineers on development for an internal tool. Set up a Next.js application with Okta single sign-on, Ant Design components, and Vitest."
+      ]
+    },
+    {
+      "title": "Tech Lead",
+      "org": "Meredith (Formerly Time Inc.)",
+      "location": "New York, NY",
+      "dates": "May 2016 - December 2018",
+      "items": [
+        "Maintained over ten sites serving millions of monthly users, such as InStyle, Allrecipes, Food & Wine, and Travel & Leisure.",
+        "Key developer for a custom Drupal API module used to provide data to an Express/Handlebars front-end.",
+        "Laid the groundwork for major features such as infinite scrolling articles, critical CSS, and automated testing."
+      ]
+    },
+    {
+      "title": "Freelance Web Developer",
+      "org": "Cynda Media Lab",
+      "location": "New York, NY",
+      "dates": "Aug 2015 - Present",
+      "items": [
+        "Built websites and web apps for clients including MIT, GUND, Vibrant Health, and Design Portfolio Center, working directly with each client from requirements through launch and ongoing maintenance.",
+        "Built reusable Lit web components and turned them into custom WordPress Gutenberg blocks, so content editors could add, preview, and edit components without a developer.",
+        "Built React component libraries in Storybook and set up Auth0 user roles for the MIT Remote Learning Hub.",
+        "Built a GUND campaign site where users design and share custom avatars with HTML canvas.",
+        "Built a custom Shopify theme for artist Vincent Di Fate's portfolio and store, and maintained the Shopify site for Vibrant Health."
+      ]
+    },
+    {
+      "title": "Senior Software Engineer",
+      "org": "Lockheed Martin Desktop Solutions, Inc.",
+      "location": "Fairfax, VA",
+      "dates": "Aug 2011 - Apr 2016",
+      "items": [
+        "Themed and customized over 30 Drupal websites for members of the U.S. House and Senate.",
+        "Created custom Drupal modules to retrieve and store data from social media APIs and update that data on cron runs.",
+        "Performed 508 compliance testing using NVDA and added WAI-ARIA where needed to improve accessibility."
+      ]
+    }
+  ]
+}

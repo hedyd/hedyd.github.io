@@ -1,0 +1,23 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "hedyd-chat",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-11-01",
+  "observability": { "enabled": true },
+  // Regenerates src/generated/resume.ts from ui/src/data before every
+  // `wrangler dev` and `wrangler deploy`.
+  "build": { "command": "node scripts/build-resume.mjs" },
+  "ai": { "binding": "AI" },
+  // Per-IP limit: 5 questions a minute. Periods must be 10 or 60 seconds.
+  "ratelimits": [
+    {
+      "name": "CHAT_LIMITER",
+      "namespace_id": "1001",
+      "simple": { "limit": 5, "period": 60 }
+    }
+  ],
+  "vars": {
+    "MODEL": "@cf/google/gemma-4-26b-a4b-it",
+    "ALLOWED_ORIGINS": "https://hedyd.dev,http://localhost:4321"
+  }
+}

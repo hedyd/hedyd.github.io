@@ -1,12 +1,13 @@
 {
   "title": "ww.com",
   "job": "WW International",
-  "year": 2025,
+  "year": 2026,
   "images": ["ww.png"],
   "imageHeight": 510,
   "video": "",
   "summary": "Website for the WeightWatchers (WW) App. Offers information about how to sign up for a WW subscription, as well as free recipes and articles on wellness.",
   "responsibilities": [
+    "Used Claude Code agents and custom CLIs to migrate about 20 apps to Argo CD and right-size them from New Relic usage data, saving about $60K a year. Also built Claude Code skills that verify pull requests with Playwright.",
     "Core developer responsible for the moving the old Drupal 7 website off Acquia Cloud onto WW's internal AWS infrastructure.",
     "Led the conversion of legacy React class components into functional components with TypeScript.",
     "Set up CI/CD pipelines for linting, testing, and Docker deployments with Github Actions."
@@ -28,6 +29,7 @@
     "Node.js",
     "Hapi",
     "Drupal 7/8/9/10",
+    "Storyblok",
     "PHP",
     "SQL",
     "Storybook",
@@ -36,10 +38,14 @@
     "Fastly",
     "Docker",
     "Kubernetes",
+    "ArgoCD",
+    "Vercel",
     "Jest",
     "Playwright",
     "Webpack",
     "Github Actions",
-    "Git"
+    "Git",
+    "Claude Code",
+    "New Relic"
   ]
 }

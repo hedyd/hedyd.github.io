@@ -29,6 +29,17 @@
   ],
   "skills": [
     {
+      "type": "AI Tooling",
+      "skills": [
+        "Claude Code",
+        "Cursor",
+        "GitHub Copilot",
+        "AWS Bedrock",
+        "Vercel AI Gateway",
+        "LiteLLM"
+      ]
+    },
+    {
       "type": "Web Development",
       "skills": [
         "HTML",
@@ -63,21 +74,24 @@
       ]
     },
     {
-      "type": "Build & Integration Tools",
+      "type": "DevOps",
       "skills": [
         "Vite",
         "Webpack",
-        "Gulp",
         "Github Actions",
         "Jenkins",
         "CircleCI",
-        "Docker"
+        "Docker",
+        "ArgoCD",
+        "Vercel",
+        "AWS",
+        "AWS CDK",
+        "Terraform"
       ]
     },
     {
       "type": "Miscellaneous",
       "skills": [
-        "Prompt Engineering",
         "Webflow",
         "Framer",
         "Squarespace",

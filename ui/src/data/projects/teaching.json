@@ -1,0 +1,45 @@
+{
+  "title": "Teaching Experience",
+  "order": 1,
+  "noteSolidType": "checkered",
+  "images": [
+    "conclusion-2.jpg"
+  ],
+  "imageHeight": 541,
+  "imageJob": "Personal",
+  "imageYear": 2026,
+  "summary": "I love sharing what I know with the next generation of truly bright students — here are some classes and seminars I've taught!",
+  "roles": [
+    {
+      "title": "Adjunct Professor",
+      "org": "Fashion Institute of Technology",
+      "items": [
+        "Teach CT390 Rapid Prototyping with AI, a 15-week course where students from different disciplines learn to build and ship web apps with AI coding agents like Claude Code and Codex.",
+        "Over the semester, students build a static site from a Figma design using MCP, an AI chat app with tool calls, an animated midterm app tested for accessibility, and a multiplayer team chat app with Google sign-in.",
+        "Built the course website and reference apps in Next.js, and run assignments and submissions through Classroom 50."
+      ]
+    },
+    {
+      "title": "Guest Lecturer",
+      "org": "Fashion Institute of Technology",
+      "items": [
+        "Led several sessions in the Brand Experience Design Portfolio & UX/UI Master Program on new AI techniques and best practices for various no-code website builders like Webflow, Squarespace, and Framer. Worked one-on-one with students to troubleshoot issues with their websites."
+      ]
+    },
+    {
+      "title": "Faculty",
+      "org": "Design Portfolio Center",
+      "items": [
+        "Tutored students on how to better set up their web portfolios, and provided personalized critiques on the overall structure and performance of their sites."
+      ]
+    },
+    {
+      "title": "Seminar Instructor",
+      "org": "Rutgers University",
+      "items": [
+        "Designed and delivered a seminar on Selenium automation, teaching HTML DOM structure, CSS/XPath selectors, shadow DOM, and automation strategies for single-page applications.",
+        "Guided students through practical applications, including automating form submissions and file downloads."
+      ]
+    }
+  ]
+}

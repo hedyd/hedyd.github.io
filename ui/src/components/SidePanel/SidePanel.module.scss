@@ -68,6 +68,7 @@
   width: 100px;
   height: 100px;
   border-radius: 100px;
+  box-shadow: 3px 3px 3px rgba(v.$color-black, 0.3);
 }
 
 .chat {
@@ -113,8 +114,7 @@
     margin-right: 0;
   }
 
-  &:first-child,
-  &:last-child {
+  &:first-child {
     width: calc(100% - 4px);
     height: v.$gap * 4;
   }
