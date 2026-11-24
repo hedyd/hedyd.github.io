@@ -49,7 +49,10 @@ const json = (
 ) =>
   new Response(JSON.stringify(body), {
     status,
-    headers: { "Content-Type": "application/json", ...corsHeaders(request, env) },
+    headers: {
+      "Content-Type": "application/json",
+      ...corsHeaders(request, env),
+    },
   });
 
 // Workers AI returns `{ response }` for most text models and an
@@ -75,11 +78,17 @@ export default {
     const url = new URL(request.url);
 
     if (url.pathname !== "/api/chat") {
-      return json(request, env, 404, { error: "not_found", message: "Not found." });
+      return json(request, env, 404, {
+        error: "not_found",
+        message: "Not found.",
+      });
     }
 
     if (request.method === "OPTIONS") {
-      return new Response(null, { status: 204, headers: corsHeaders(request, env) });
+      return new Response(null, {
+        status: 204,
+        headers: corsHeaders(request, env),
+      });
     }
 
     if (request.method !== "POST") {
@@ -130,12 +139,23 @@ export default {
         ],
         max_tokens: 500,
         temperature: 0.7,
+        // Gemma 4 reasons before answering by default, which can use the
+        // whole token budget and leave no answer. Short resume answers
+        // don't need it, and it also costs more neurons.
+        chat_template_kwargs: { enable_thinking: false },
       });
       const text = readText(output);
-      if (!text) throw new Error("Model returned no text.");
+      if (!text) {
+        throw new Error(
+          `Model returned no text: ${JSON.stringify(output).slice(0, 500)}`,
+        );
+      }
       return json(request, env, 200, { text });
     } catch (error) {
-      console.error("AI request failed", error);
+      console.error(
+        "AI request failed:",
+        error instanceof Error ? error.message : String(error),
+      );
       if (isDailyLimitError(error)) {
         return json(request, env, 429, {
           error: "daily_limit",

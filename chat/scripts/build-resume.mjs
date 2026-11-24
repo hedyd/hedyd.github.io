@@ -18,9 +18,13 @@ const about = readJson(join(dataDir, "about", "about.json"));
 const projectsDir = join(dataDir, "projects");
 const projects = readdirSync(projectsDir)
   .filter((file) => file.endsWith(".json"))
-  .map((file) => readJson(join(projectsDir, file)))
+  .map((file) => ({
+    id: file.replace(/\.json$/, ""),
+    ...readJson(join(projectsDir, file)),
+  }))
   .sort((a, b) => {
-    if (a.year != null && b.year != null) return b.year - a.year;
+    if (a.year != null && b.year != null)
+      return b.year - a.year || a.id.localeCompare(b.id);
     if (a.year != null) return -1;
     if (b.year != null) return 1;
     return (a.order ?? 0) - (b.order ?? 0);
@@ -44,7 +48,10 @@ sections.push(
 
 sections.push(
   `# Work Experience\n${resume.experience
-    .map((job) => `## ${job.title}, ${job.org}\n${job.location} | ${job.dates}\n${list(job.items)}`)
+    .map(
+      (job) =>
+        `## ${job.title}, ${job.org}\n${job.location} | ${job.dates}\n${list(job.items)}`,
+    )
     .join("\n\n")}`,
 );
 
