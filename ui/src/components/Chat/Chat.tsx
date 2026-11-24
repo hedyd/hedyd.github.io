@@ -10,14 +10,23 @@ import { keyCodeMapping, letterMapping } from "../../data/letterMapping";
 import styles from "./Chat.module.scss";
 
 const startingText = `Ask me anything about Hedy's resume! Here are some example questions:<br /><br />
-- Can you describe Hedy's experience with CI/CD pipelines and how she set them up for different projects?<br />
-- What is Hedy's experience with cloud services like AWS?<br />
-- What are some interesting projects Hedy has used React with?`;
+- How has Hedy used Claude Code and AI agents at work?<br />
+- What does Hedy teach in Rapid Prototyping with AI?<br />
+- What front-end frameworks has Hedy worked with?<br />
+- What DevOps and infrastructure work has Hedy done?<br />
+- What's Hedy's experience taking Figma designs to production?`;
 
 const CHAT_URL: string | undefined = import.meta.env.PUBLIC_CHAT_URL;
 const REQUEST_TIMEOUT_MS = 20000;
 
 type ChatResponse = { text: string } | { error: string; message: string };
+
+// Escapes the model's reply, then turns **bold** into <strong> and line
+// breaks into <br />. Escaping first means only these two tags can appear.
+const formatReply = (text: string) =>
+  encode(text)
+    .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+    .replace(/\n/g, "<br />");
 
 const errorMessages: Record<string, string> = {
   rate_limited:
@@ -70,9 +79,7 @@ export const Chat = () => {
         body: JSON.stringify({ prompt: userInput }),
         signal: controller.signal,
       });
-      const json: ChatResponse | null = await response
-        .json()
-        .catch(() => null);
+      const json: ChatResponse | null = await response.json().catch(() => null);
 
       if (!response.ok || !json || !("text" in json)) {
         setText(
@@ -82,7 +89,7 @@ export const Chat = () => {
         return;
       }
 
-      setText(encode(json.text).replace(/\n/g, "<br />"));
+      setText(formatReply(json.text));
     } catch (error) {
       setText(
         error instanceof DOMException && error.name === "AbortError"

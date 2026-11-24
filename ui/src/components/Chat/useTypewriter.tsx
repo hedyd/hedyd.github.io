@@ -13,7 +13,6 @@ export const useTypewriter = ({
 }: UseTypewriterProps) => {
   const [index, setIndex] = useState(0);
   const displayText = text.slice(0, index);
-  const lineBreak = "<br />";
 
   useEffect(() => {
     if (text && index >= text.length) {
@@ -22,8 +21,11 @@ export const useTypewriter = ({
     }
 
     const timeoutId = setTimeout(() => {
+      // Skip over a whole HTML tag (<br />, <strong>, </strong>) at once so a
+      // half-typed tag never shows up as text.
       if (text.charAt(index) === "<") {
-        setIndex((i) => i + lineBreak.length);
+        const tagEnd = text.indexOf(">", index);
+        setIndex(tagEnd === -1 ? index + 1 : tagEnd + 1);
       } else {
         setIndex((i) => i + 1);
       }

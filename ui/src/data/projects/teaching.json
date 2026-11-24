@@ -3,7 +3,7 @@
   "order": 1,
   "noteSolidType": "checkered",
   "images": [
-    "conclusion-2.jpg"
+    "teaching.webp"
   ],
   "imageHeight": 541,
   "imageJob": "Personal",
@@ -14,9 +14,7 @@
       "title": "Adjunct Professor",
       "org": "Fashion Institute of Technology",
       "items": [
-        "Teach CT390 Rapid Prototyping with AI, a 15-week course where students from different disciplines learn to build and ship web apps with AI coding agents like Claude Code and Codex.",
-        "Over the semester, students build a static site from a Figma design using MCP, an AI chat app with tool calls, an animated midterm app tested for accessibility, and a multiplayer team chat app with Google sign-in.",
-        "Built the course website and reference apps in Next.js, and run assignments and submissions through Classroom 50."
+        "Teach CT390 Rapid Prototyping with AI, where students build and ship web apps with AI coding agents."
       ]
     },
     {

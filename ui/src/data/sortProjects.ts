@@ -1,9 +1,9 @@
 import type { CollectionEntry } from "astro:content";
 
 // Sorts projects by year (most recent first). Entries without a year are
-// placed last, ordered by their explicit `order` field (e.g. teaching, then
-// conclusion). Ties fall back to the file name (A to Z), so the order
-// doesn't depend on how the content loader happens to list files.
+// placed last, ordered by their explicit `order` field (e.g. teaching). Ties
+// fall back to the file name (A to Z), so the order doesn't depend on how
+// the content loader happens to list files.
 export function sortProjects(
   a: CollectionEntry<"projects">,
   b: CollectionEntry<"projects">,

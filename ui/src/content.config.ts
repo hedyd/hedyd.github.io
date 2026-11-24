@@ -7,7 +7,7 @@ const projects = defineCollection({
     title: z.string(),
     job: z.string().optional(),
     year: z.number().optional(),
-    // Sort order for entries without a year (e.g. teaching, conclusion).
+    // Sort order for entries without a year (e.g. teaching).
     order: z.number().optional(),
     // Pins the nav sticky note to a specific solid pattern instead of the
     // index-based default.

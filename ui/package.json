@@ -1,7 +1,7 @@
 {
   "name": "ui",
   "type": "module",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -9,7 +9,8 @@
     "astro": "astro",
     "lint": "eslint --fix",
     "prettier": "prettier . --write",
-    "md:convert": "node scripts/json-to-md.cjs"
+    "md:convert": "node scripts/json-to-md.cjs",
+    "images": "node scripts/optimize-images.mjs"
   },
   "dependencies": {
     "@astrojs/react": "^7.1.9",
@@ -28,6 +29,7 @@
     "globals": "^17.14.0",
     "prettier": "^3.10.1",
     "prettier-plugin-astro": "^1.1.2",
+    "sharp": "^0.35.5",
     "typescript-eslint": "^8.74.0"
   }
 }

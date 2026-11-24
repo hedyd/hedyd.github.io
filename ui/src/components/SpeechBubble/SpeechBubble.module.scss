@@ -9,6 +9,10 @@
   margin-bottom: v.$gap * 2;
   line-height: v.$lh;
 
+  strong {
+    font-weight: 600;
+  }
+
   &:first-child {
     margin-top: auto;
   }

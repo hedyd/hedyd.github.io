@@ -1,0 +1,33 @@
+{
+  "title": "Rapid Prototyping with AI",
+  "job": "Fashion Institute of Technology",
+  "year": 2026,
+  "images": ["ct390.webp"],
+  "imageHeight": 500,
+  "video": "",
+  "summary": "CT390, a 15-week course where students from different disciplines learn to build and ship web apps with AI coding agents like Claude Code and Codex.",
+  "responsibilities": [
+    "Designed four projects that build on each other: a static site from a Figma design using MCP, an AI chat app with tool calls, an animated midterm app tested for accessibility, and a multiplayer team chat app with Google sign-in.",
+    "Built the course website and reference apps in Next.js.",
+    "Run assignments and submissions through Classroom 50."
+  ],
+  "features": [
+    "Figma-to-code with the Figma MCP server",
+    "AI chat with tool calling",
+    "Accessibility testing",
+    "Real-time multiplayer chat on Cloudflare Workers"
+  ],
+  "skills": [
+    "Claude Code",
+    "Codex",
+    "MCP",
+    "Figma",
+    "Next.js",
+    "Vercel AI Gateway",
+    "Cloudflare Workers",
+    "Durable Objects",
+    "D1",
+    "Better Auth",
+    "Storybook"
+  ]
+}

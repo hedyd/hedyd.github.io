@@ -2,27 +2,30 @@
   "title": "Portfolio Website",
   "job": "Personal",
   "year": 2025,
-  "images": ["portfolio.jpg"],
+  "images": [
+    "portfolio.webp"
+  ],
   "imageHeight": 541,
   "video": "",
   "summary": "What you're currently looking at!",
   "responsibilities": [
-    "Set up a chat bot that answers questions about my resume.",
-    "Deployed a Lambda function and API Gateway REST API via AWS CDK.",
+    "Set up a chat bot that answers questions about my resume, built from the same JSON that powers this page.",
+    "Moved the chat from AWS Lambda and Bedrock to a Cloudflare Worker running Workers AI, with rate limiting and a daily cap.",
     "Created UI using Astro."
   ],
   "features": [
     "AI powered chat assistant",
     "Astro content collections",
-    "AWS CDK deployment"
+    "Cloudflare Workers AI",
+    "GitHub Actions deployment"
   ],
   "skills": [
     "Astro",
-    "AWS Bedrock",
-    "AWS Lambda",
-    "AWS API Gateway",
-    "AWS CDK",
     "React",
+    "TypeScript",
+    "Cloudflare Workers",
+    "Workers AI",
+    "GitHub Actions",
     "Git"
   ]
 }
