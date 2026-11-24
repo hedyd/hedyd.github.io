@@ -7,8 +7,8 @@
   "imageJob": "Personal",
   "imageYear": 2024,
   "summary": [
-    "Hi, I’m Hedy - a Senior Software Engineer based in New York with over a decade of experience building performant, scalable, and accessible web applications.",
-    "From leading migrations to architecting internal tools, I bring a full-stack mindset to every project. I’ve worked across industries, from government websites to media giants like Time Inc., delivering intuitive digital experiences to millions of users. I’m passionate about clean code, thoughtful UX, and always learning what’s next."
+    "Hi, I’m Hedy - a Senior Software Engineer in New York with 15 years of experience building fast, accessible web apps, from sites for members of Congress to media brands like InStyle and Allrecipes, and now the WeightWatchers platform.",
+    "These days much of my work is with AI agents. I build CLIs and Claude Code skills that let agents migrate and right-size apps across dozens of repos, and I teach Rapid Prototyping with AI at the Fashion Institute of Technology. I like working closely with designers and clients to turn a rough idea into a working prototype, then make it production-ready."
   ],
   "links": [
     {
@@ -32,11 +32,12 @@
       "type": "AI Tooling",
       "skills": [
         "Claude Code",
+        "Codex",
+        "MCP",
         "Cursor",
-        "GitHub Copilot",
+        "Github Copilot",
         "AWS Bedrock",
-        "Vercel AI Gateway",
-        "LiteLLM"
+        "AI Gateways (Vercel, LiteLLM)"
       ]
     },
     {
@@ -44,22 +45,33 @@
       "skills": [
         "HTML",
         "CSS/SCSS",
+        "Tailwind",
         "JavaScript",
         "Web Components",
         "TypeScript",
         "React",
         "Next.js",
-        "Angular",
-        "lit-html",
         "Astro",
         "Node.js",
         "Express",
-        "Fastify",
         "PHP",
         "GraphQL",
         "MongoDB",
-        "SQL",
-        "Drupal"
+        "PostgreSQL",
+        "Drupal",
+        "Vite",
+        "Webpack"
+      ]
+    },
+    {
+      "type": "Design",
+      "skills": [
+        "Figma",
+        "Figma Make",
+        "Design Systems",
+        "Storybook",
+        "Prototyping",
+        "Accessibility (WCAG)"
       ]
     },
     {
@@ -67,23 +79,20 @@
       "skills": [
         "Vitest",
         "Jest",
-        "Mocha/Chai",
-        "Jasmine/Karma",
         "Playwright",
-        "Storybook"
+        "axe",
+        "WAVE"
       ]
     },
     {
       "type": "DevOps",
       "skills": [
-        "Vite",
-        "Webpack",
         "Github Actions",
-        "Jenkins",
-        "CircleCI",
         "Docker",
+        "Kubernetes",
         "ArgoCD",
         "Vercel",
+        "Cloudflare",
         "AWS",
         "AWS CDK",
         "Terraform"
@@ -95,13 +104,10 @@
         "Webflow",
         "Framer",
         "Squarespace",
+        "Shopify",
         "Git",
         "Jira",
-        "Agile Development",
-        "Figma",
-        "Adobe Photoshop",
-        "Customer Service (IT Helpdesk supervisor)",
-        "Web Development Instruction (Part-time SUNY faculty)"
+        "Customer Service (IT Helpdesk supervisor)"
       ]
     }
   ]
