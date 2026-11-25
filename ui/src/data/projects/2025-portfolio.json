@@ -2,9 +2,7 @@
   "title": "Portfolio Website",
   "job": "Personal",
   "year": 2025,
-  "images": [
-    "portfolio.webp"
-  ],
+  "images": ["portfolio.webp"],
   "imageHeight": 541,
   "video": "",
   "summary": "What you're currently looking at!",
@@ -25,6 +23,10 @@
     "TypeScript",
     "Cloudflare Workers",
     "Workers AI",
+    "AWS Bedrock",
+    "AWS Lambda",
+    "AWS API Gateway",
+    "AWS CDK",
     "GitHub Actions",
     "Git"
   ]

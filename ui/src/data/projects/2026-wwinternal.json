@@ -1,0 +1,41 @@
+{
+  "title": "WW Internal Tooling",
+  "job": "WW International",
+  "year": 2026,
+  "images": ["wwinternal.webp"],
+  "imageHeight": 563,
+  "video": "",
+  "summary": "Account management and internal tools at WW International, from a portal for UK members who join through a free government program to agent-driven tooling that keeps WW's apps up to date and right-sized.",
+  "responsibilities": [
+    "Built Claude Code agents and custom CLIs that migrated about 20 apps to Argo CD and right-sized them from New Relic usage data, opening the pull requests themselves and saving about $60K a year.",
+    "Built Claude Code skills that verify pull requests by writing and running Playwright scripts.",
+    "Set up the Next.js (App Router) app for the UK program with TypeScript and the Ant Design component library.",
+    "Managed a team of three engineers. Acted as a point of contact and divided tasks.",
+    "Led weekly client demos of new key functionality."
+  ],
+  "features": [
+    "Agent-operated CLIs that open pull requests across dozens of repos",
+    "Automated pull request checks with Playwright",
+    "CSV report generation for government audits",
+    "OKTA login and role-based access control using NextAuth",
+    "User data tables with filtering and pagination"
+  ],
+  "skills": [
+    "Claude Code",
+    "React",
+    "Next.js",
+    "SCSS",
+    "TypeScript",
+    "Express",
+    "Node.js",
+    "PostgreSQL",
+    "Docker",
+    "Kubernetes",
+    "ArgoCD",
+    "New Relic",
+    "Playwright",
+    "Vitest",
+    "Github Actions",
+    "Git"
+  ]
+}
